@@ -45,10 +45,10 @@
                     <p class="hero-subtitle">That's not a hiring problem.<br>That's a $200,000/year mistake.<br>We fix it — senior AI engineers, 65% less cost, first delivery in 3 weeks.</p>
                 </div>
                 <div class="hero-actions-wrapper">
-                    <a href="#" class="btn btn-red hover-grow">
+                    <a href="#savings-section" id="calc-savings-btn" class="btn btn-red hover-grow">
                         Calculate My Savings &rarr;
                     </a>
-                    <a href="#" class="btn btn-outline-dark hover-grow">
+                    <a href="#audit-section" id="audit-btn" class="btn btn-outline-dark hover-grow">
                         Get Free Tech Cost Audit
                     </a>
                     <span class="guarantee-text">
@@ -207,7 +207,7 @@
         </div>
     </section>
     <!-- Savings Section -->
-    <section class="savings-section">
+    <section id="savings-section" class="savings-section">
         <div class="container">
             <div class="savings-header reveal reveal-up">
                 <div class="savings-badge">
@@ -223,7 +223,7 @@
                 <div class="savings-form reveal reveal-left delay-100">
                     <div class="form-group">
                         <label>NUMBER OF DEVELOPERS NEEDED</label>
-                        <select class="form-select">
+                        <select id="developer_count" class="form-select">
                             <option>1 developer</option>
                             <option>2 developers</option>
                             <option>3 developers</option>
@@ -233,7 +233,7 @@
                     </div>
                     <div class="form-group">
                         <label>PRIMARY ROLE / SPECIALISATION</label>
-                        <select class="form-select">
+                        <select id="specialisation" class="form-select">
                             <option>Fullstack developer</option>
                             <option>AI/ML Engineer</option>
                             <option>Product Manager</option>
@@ -243,7 +243,7 @@
                     </div>
                     <div class="form-group">
                         <label>CONTRACT LENGTH</label>
-                        <select class="form-select">
+                        <select id="contract_length" class="form-select">
                             <option>3 months</option>
                             <option>6 months</option>
                             <option>12 months</option>
@@ -252,7 +252,7 @@
                     </div>
                     <div class="form-group">
                         <label>YOUR CURRENT HOURLY RATE (USD)</label>
-                        <select class="form-select">
+                        <select id="hourly_rate" class="form-select">
                             <option>~$100/hr</option>
                             <option>~$125/hr</option>
                             <option>~$150/hr</option>
@@ -283,14 +283,15 @@
                         </div>
                     </div>
 
-                    <a href="#" class="btn btn-red btn-full">Lock In This Rate &mdash; Book Free Call &rarr;</a>
+                    <a href="#" id="submit-savings" class="btn btn-red btn-full">Lock In This Rate &mdash; Book Free Call &rarr;</a>
+                    <div id="savings-message" style="margin-top: 12px; font-size: 13px; font-weight: 600; text-align: center; display: none;"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Audit Section -->
-    <section class="audit-section">
+    <section id="audit-section" class="audit-section">
         <div class="container">
             <div class="savings-layout">
                 <!-- Left Column Content -->
@@ -311,12 +312,12 @@
                     <h3 style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 12px; font-family: var(--font-sans);">Get Your Free Audit Report</h3>
                     <p style="font-size: 13px; color: #666; margin-bottom: 24px;">Delivered within 2 business hours. No spam &mdash; ever.</p>
                     
-                    <form class="audit-form" style="display: flex; flex-direction: column; gap: 16px;">
-                        <input type="text" placeholder="Full name" class="audit-input">
-                        <input type="email" placeholder="Work email" class="audit-input">
-                        <input type="text" placeholder="Company name" class="audit-input">
+                    <form id="audit-form" class="audit-form" style="display: flex; flex-direction: column; gap: 16px;">
+                        <input id="audit_full_name" type="text" placeholder="Full name" class="audit-input" required>
+                        <input id="audit_email" type="email" placeholder="Work email" class="audit-input" required>
+                        <input id="audit_company" type="text" placeholder="Company name" class="audit-input" required>
                         
-                        <select class="form-select">
+                        <select id="audit_dev_spend" class="form-select" required>
                             <option disabled selected value="">Current monthly dev spend</option>
                             <option>Under $5,000/mo</option>
                             <option>$5,000-$15,000/mo</option>
@@ -324,7 +325,8 @@
                             <option>$50,000+/mo</option>
                         </select>
 
-                        <button type="submit" class="btn btn-red btn-full" style="margin-top: 8px;">Send Me the Free Report &rarr;</button>
+                        <button type="submit" id="submit-audit" class="btn btn-red btn-full" style="margin-top: 8px;">Send Me the Free Report &rarr;</button>
+                        <div id="audit-message" style="margin-top: 4px; font-size: 13px; font-weight: 600; text-align: center; display: none;"></div>
                     </form>
 
                     <div class="lock-subtext" style="display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 16px; font-size: 11px; color: #888;">
@@ -375,6 +377,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

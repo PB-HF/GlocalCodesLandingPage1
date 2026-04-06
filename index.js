@@ -67,4 +67,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => revealObserver.observe(el));
     }
+
+    // 4. Custom scroll logic to perfectly center the savings form in the viewport
+    const calcSavingsBtn = document.getElementById('calc-savings-btn');
+    if (calcSavingsBtn) {
+        calcSavingsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const savingsLayout = document.querySelector('.savings-layout');
+            if (savingsLayout) {
+                savingsLayout.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        });
+    }
+
+    // 5. Custom scroll logic for the audit form
+    const auditBtn = document.getElementById('audit-btn');
+    if (auditBtn) {
+        auditBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const auditLayout = document.querySelector('.audit-section .savings-layout');
+            if (auditLayout) {
+                auditLayout.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        });
+    }
+
+    // 6. EmailJS Integration for Savings Form
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("QpkBmnT4LJ4PGyWTX");
+    }
+
+    const submitSavingsBtn = document.getElementById('submit-savings');
+    const savingsMessage = document.getElementById('savings-message');
+
+    if (submitSavingsBtn && savingsMessage) {
+        submitSavingsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            if (typeof emailjs === 'undefined') {
+                savingsMessage.textContent = 'Email service is currently unavailable.';
+                savingsMessage.style.color = '#dc3545';
+                savingsMessage.style.display = 'block';
+                return;
+            }
+
+            const originalText = submitSavingsBtn.innerHTML;
+            submitSavingsBtn.innerHTML = 'Sending...';
+            submitSavingsBtn.style.pointerEvents = 'none';
+            savingsMessage.style.display = 'none';
+
+            const templateParams = {
+                developer_count: document.getElementById('developer_count').value,
+                specialisation: document.getElementById('specialisation').value,
+                contract_length: document.getElementById('contract_length').value,
+                hourly_rate: document.getElementById('hourly_rate').value,
+                time: new Date().toLocaleString()
+            };
+
+            emailjs.send("service_5ukbpwr", "template_zu2emen", templateParams)
+                .then(function() {
+                    submitSavingsBtn.innerHTML = 'Request Sent!';
+                    // Keep pointer events none to prevent double submission
+                    savingsMessage.textContent = 'We have received your details! We will be in touch shortly.';
+                    savingsMessage.style.color = '#28a745';
+                    savingsMessage.style.display = 'block';
+                }, function(error) {
+                    submitSavingsBtn.innerHTML = originalText;
+                    submitSavingsBtn.style.pointerEvents = 'auto';
+                    savingsMessage.textContent = 'Oops! Failed to send your request. Please try again.';
+                    savingsMessage.style.color = '#dc3545';
+                    savingsMessage.style.display = 'block';
+                    console.error('EmailJS Error:', error);
+                });
+        });
+    }
+
+    // 7. EmailJS Integration for Audit Form
+    const auditForm = document.getElementById('audit-form');
+    const submitAuditBtn = document.getElementById('submit-audit');
+    const auditMessage = document.getElementById('audit-message');
+
+    if (auditForm && submitAuditBtn && auditMessage) {
+        auditForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (typeof emailjs === 'undefined') {
+                auditMessage.textContent = 'Email service is currently unavailable.';
+                auditMessage.style.color = '#dc3545';
+                auditMessage.style.display = 'block';
+                return;
+            }
+
+            const originalText = submitAuditBtn.innerHTML;
+            submitAuditBtn.innerHTML = 'Sending...';
+            submitAuditBtn.style.pointerEvents = 'none';
+            auditMessage.style.display = 'none';
+
+            const templateParams = {
+                full_name: document.getElementById('audit_full_name').value,
+                email: document.getElementById('audit_email').value,
+                company: document.getElementById('audit_company').value,
+                dev_spend: document.getElementById('audit_dev_spend').value,
+                time: new Date().toLocaleString()
+            };
+
+            emailjs.send("service_5ukbpwr", "template_7dnybps", templateParams)
+                .then(function() {
+                    submitAuditBtn.innerHTML = 'Report Requested!';
+                    auditMessage.textContent = 'Awesome! We have received your request and will send the report shortly.';
+                    auditMessage.style.color = '#28a745';
+                    auditMessage.style.display = 'block';
+                }, function(error) {
+                    submitAuditBtn.innerHTML = originalText;
+                    submitAuditBtn.style.pointerEvents = 'auto';
+                    auditMessage.textContent = 'Oops! Failed to send your request. Please try again.';
+                    auditMessage.style.color = '#dc3545';
+                    auditMessage.style.display = 'block';
+                    console.error('EmailJS Error:', error);
+                });
+        });
+    }
 });
