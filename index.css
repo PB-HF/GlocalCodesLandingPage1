@@ -13,8 +13,8 @@
   --gradient-btn-hover: linear-gradient(90deg, #d83474 0%, #366576 100%);
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Roboto Serif', Georgia, serif;
 
   /* Layout */
   --container-width: 1200px;
@@ -37,6 +37,18 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply Serif Font to All Big Texts / Headings */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.stat-number,
+.features-title,
+.feature-card-title,
+.savings-title,
+.call-title,
+.results-value {
+  font-family: var(--font-serif) !important;
 }
 
 a {
