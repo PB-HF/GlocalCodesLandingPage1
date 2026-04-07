@@ -25,7 +25,7 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#da3732" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     Book a call — free. 45 min
                 </span>
-                <a href="#" class="btn btn-red header-btn hover-grow" style="padding: 12px 24px;">
+                <a href="https://calendly.com/gaurav-digicots/book-your-free-45-minute-strategy-call" target="_blank" class="btn btn-red header-btn hover-grow" style="padding: 12px 24px;">
                     Book Free Call &rarr;
                 </a>
             </div>
@@ -312,9 +312,10 @@
                     <h3 style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 12px; font-family: var(--font-sans);">Get Your Free Audit Report</h3>
                     <p style="font-size: 13px; color: #666; margin-bottom: 24px;">Delivered within 2 business hours. No spam &mdash; ever.</p>
                     
-                    <form id="audit-form" class="audit-form" style="display: flex; flex-direction: column; gap: 16px;">
+                    <form id="audit-form" class="audit-form" style="display: flex; flex-direction: column; gap: 12px;">
                         <input id="audit_full_name" type="text" placeholder="Full name" class="audit-input" required>
                         <input id="audit_email" type="email" placeholder="Work email" class="audit-input" required>
+                        <input id="audit_phone" type="tel" placeholder="Phone number" class="audit-input" required>
                         <input id="audit_company" type="text" placeholder="Company name" class="audit-input" required>
                         
                         <select id="audit_dev_spend" class="form-select" required>
@@ -334,6 +335,29 @@
                         Your data is never shared or sold.
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Section -->
+    <section class="call-section">
+        <div class="container call-container">
+            <div class="call-header reveal reveal-up">
+                <h2 class="call-title">Book Your Free 45-Minute Strategy Call</h2>
+                <p class="call-subtitle">Talk to a senior automation strategist &mdash; not a salesperson.<br>Walk away with a clear plan and real numbers.</p>
+                <div class="call-pills">
+                    <span class="call-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Free 45 minutes</span>
+                    <span class="call-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Senior strategist (not a sales rep)</span>
+                    <span class="call-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom savings breakdown</span>
+                    <span class="call-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero pressure</span>
+                </div>
+            </div>
+            
+            <div class="calendly-wrapper reveal reveal-up delay-200">
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gaurav-digicots/book-your-free-45-minute-strategy-call?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:750px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
             </div>
         </div>
     </section>
@@ -361,7 +385,7 @@
         </div>
     </section>
     <!-- Footer Section -->
-    <footer class="footer-section reveal reveal-up">
+    <footer class="footer-section">
         <div class="container footer-container">
             <div class="footer-left">
                 <img src="glocal-codes-logo.png" alt="Glocal Codes Logo" class="footer-logo">

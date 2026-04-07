@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => revealObserver.observe(el));
     }
 
-    // 4. Custom scroll logic to perfectly center the savings form in the viewport
+    // 4. Custom scroll logic to perfectly center the savings form in the viewport (Commented out to use default behavior)
+    /*
     const calcSavingsBtn = document.getElementById('calc-savings-btn');
     if (calcSavingsBtn) {
         calcSavingsBtn.addEventListener('click', function(e) {
@@ -79,8 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    */
 
-    // 5. Custom scroll logic for the audit form
+    // 5. Custom scroll logic for the audit form (Commented out to use default behavior)
+    /*
     const auditBtn = document.getElementById('audit-btn');
     if (auditBtn) {
         auditBtn.addEventListener('click', function(e) {
@@ -91,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    */
 
     // 6. EmailJS Integration for Savings Form
     if (typeof emailjs !== 'undefined') {
@@ -128,9 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(function() {
                     submitSavingsBtn.innerHTML = 'Request Sent!';
                     // Keep pointer events none to prevent double submission
-                    savingsMessage.textContent = 'We have received your details! We will be in touch shortly.';
-                    savingsMessage.style.color = '#28a745';
-                    savingsMessage.style.display = 'block';
+                    window.open("https://calendly.com/gaurav-digicots/book-your-free-45-minute-strategy-call", "_blank");
                 }, function(error) {
                     submitSavingsBtn.innerHTML = originalText;
                     submitSavingsBtn.style.pointerEvents = 'auto';
@@ -166,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const templateParams = {
                 full_name: document.getElementById('audit_full_name').value,
                 email: document.getElementById('audit_email').value,
+                phone: document.getElementById('audit_phone').value,
                 company: document.getElementById('audit_company').value,
                 dev_spend: document.getElementById('audit_dev_spend').value,
                 time: new Date().toLocaleString()
