@@ -177,9 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailjs.send("service_5ukbpwr", "template_7dnybps", templateParams)
                 .then(function() {
                     submitAuditBtn.innerHTML = 'Report Requested!';
-                    auditMessage.textContent = 'Awesome! We have received your request and will send the report shortly.';
-                    auditMessage.style.color = '#28a745';
-                    auditMessage.style.display = 'block';
+                    window.location.href = "https://glocalcodes.com/thank-you/";
                 }, function(error) {
                     submitAuditBtn.innerHTML = originalText;
                     submitAuditBtn.style.pointerEvents = 'auto';
